@@ -8,8 +8,9 @@
 
 #import "RAViewController.h"
 #import "RecipesTableViewDataSource.h"
+#import "RADetailViewController.h"
 
-@interface RAViewController ()
+@interface RAViewController ()  <UITableViewDelegate>
 @property (strong, nonatomic) UITableView *tableView;
 @property (strong, nonatomic) RecipesTableViewDataSource *dataSource;
 
@@ -25,6 +26,7 @@
     self.dataSource = [[RecipesTableViewDataSource alloc] init];
     [self.dataSource regesterTableView:self.tableView];
     self.tableView.dataSource = self.dataSource;
+    self.tableView.delegate = self;
     
     [self.view addSubview:self.tableView];
 }
@@ -43,5 +45,22 @@
     // Pass the selected object to the new view controller.
 }
 */
+
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    /*UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellID];
+    if (!cell){
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellID];
+    }
+
+    cell.selected = NO;*/
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    
+    NSLog(@"got called");
+    
+    RADetailViewController *detailViewController = [RADetailViewController new];
+    
+    [self.navigationController pushViewController:detailViewController animated:YES];
+}
 
 @end

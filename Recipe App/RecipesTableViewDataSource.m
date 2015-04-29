@@ -11,8 +11,6 @@
 
 @implementation RecipesTableViewDataSource
 
-static NSString *cellID = @"cell";
-
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
     return [RARecipes count];
 }

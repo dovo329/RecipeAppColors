@@ -8,6 +8,8 @@
 
 #import <Foundation/Foundation.h>
 
+static NSString *cellID = @"cell";
+
 @interface RecipesTableViewDataSource : NSObject <UITableViewDataSource>
 
 -(void)regesterTableView:(UITableView *)tableView;
