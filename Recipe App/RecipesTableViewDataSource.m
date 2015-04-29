@@ -18,18 +18,15 @@
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellID];
     if (!cell){
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellID];
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:cellID];
     }
     cell.textLabel.text = [RARecipes recipeAtIndex:indexPath.row][@"recipeTitle"];
+
+    cell.detailTextLabel.text = [RARecipes descriptionAtIndex:indexPath.row];
     
     return cell;
     
 }
 
 
--(void)regesterTableView:(UITableView *)tableView {
-    
-    [tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:cellID];
-    
-}
 @end
