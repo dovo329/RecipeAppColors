@@ -15,7 +15,7 @@
 
 @implementation RADetailViewController
 
-static CGFloat margin = 150;
+static CGFloat margin = 25;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -28,15 +28,31 @@ static CGFloat margin = 150;
     
     UIScrollView *scrollView = [[UIScrollView alloc] initWithFrame:self.view.frame];
     NSArray *lables = @[@"Description", @"Ingredients", @"Direction"];
+    NSArray *textArray = @[[RARecipes directionsAtIndex:self.recipeIndex], [RARecipes recipeAtIndex:self.recipeIndex][@"recipeIngredients"],[RARecipes recipeAtIndex:self.recipeIndex][@"directions"]];
     
     for (NSString *i in lables) {
-        UILabel *newLabel = [[UILabel alloc] initWithFrame:CGRectMake(15, lableY, 100, 50)];
+        UILabel *newLabel = [[UILabel alloc] initWithFrame:CGRectMake(15, lableY, CGRectGetWidth(self.view.frame) -15, 20)];
         newLabel.text = i;
         [scrollView addSubview:newLabel];
+        contentSize += margin + CGRectGetHeight(newLabel.frame);
+        lableY += margin + 20;
         
-        contentSize += margin + CGRectGetHeight([newLabel bounds]);
-        lableY += 50 + margin;
-    }
+        NSString *textLableText = @"";
+        for (NSString *i in textArray[0]) {
+            textLableText = [textLableText stringByAppendingFormat:@"%@ ", i];
+        }
+
+        CGRect frame = [textLableText boundingRectWithSize:CGSizeMake(CGRectGetWidth(self.view.frame) - 25, CGFLOAT_MAX) options:NSStringDrawingUsesLineFragmentOrigin attributes:nil context:nil];
+        frame.origin = CGPointMake(25, lableY);
+        UILabel *textLabel= [[UILabel alloc] initWithFrame:frame];
+
+        [textLabel setNumberOfLines:0];
+        textLabel.text = textLableText;
+        [scrollView addSubview:textLabel];
+        contentSize += margin + CGRectGetHeight(textLabel.frame);
+        lableY +=  margin + CGRectGetHeight(textLabel.frame);
+   
+   }
     scrollView.contentSize = CGSizeMake(CGRectGetWidth(self.view.frame), contentSize);
     [self.view addSubview:scrollView];
 
