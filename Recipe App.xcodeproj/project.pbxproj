@@ -127,10 +127,10 @@
 				D075FB051AF16AE000691D7E /* RARecipes.m */,
 				D075FB071AF16B6100691D7E /* RecipesTableViewDataSource.h */,
 				D075FB081AF16B6100691D7E /* RecipesTableViewDataSource.m */,
-				71F67B62192C8D6A00E609F1 /* Images.xcassets */,
-				71F67B57192C8D6A00E609F1 /* Supporting Files */,
 				A514D8711AF17A0D00A12E50 /* RADetailViewController.h */,
 				A514D8721AF17A0D00A12E50 /* RADetailViewController.m */,
+				71F67B62192C8D6A00E609F1 /* Images.xcassets */,
+				71F67B57192C8D6A00E609F1 /* Supporting Files */,
 			);
 			path = "Recipe App";
 			sourceTree = "<group>";

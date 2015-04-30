@@ -7,6 +7,7 @@
 //
 
 #import "RADetailViewController.h"
+#import "RARecipes.h"
 
 @interface RADetailViewController ()
 
@@ -17,9 +18,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    
-    self.view.frame = [[UIScreen mainScreen] bounds];
-    self.view.backgroundColor = [UIColor redColor];
+    self.title = [RARecipes titleAtIndex:self.recipeIndex];
+
 }
 
 - (void)didReceiveMemoryWarning {

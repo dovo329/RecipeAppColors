@@ -50,6 +50,7 @@
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     
     RADetailViewController *detailViewController = [RADetailViewController new];
+    detailViewController.recipeIndex = indexPath.row;
     
     [self.navigationController pushViewController:detailViewController animated:YES];
 }

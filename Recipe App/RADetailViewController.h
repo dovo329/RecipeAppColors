@@ -10,4 +10,6 @@
 
 @interface RADetailViewController : UIViewController
 
+@property (nonatomic, assign) NSInteger *recipeIndex;
+
 @end
