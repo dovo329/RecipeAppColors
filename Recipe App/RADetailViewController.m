@@ -9,6 +9,50 @@
 #import "RADetailViewController.h"
 #import "RARecipes.h"
 
+@implementation UIFont (Utils)
+
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wobjc-protocol-method-implementation"
+
+static const NSString *fontName = @"Chalkduster";
+
++ (UIFont *)systemFontOfSize:(CGFloat)size
+{
+    return [UIFont fontWithName:fontName size:size];
+}
+
++ (UIFont *)lightSystemFontOfSize:(CGFloat)size
+{
+    return [UIFont fontWithName:fontName size:size];
+}
+
++ (UIFont *)boldSystemFontOfSize:(CGFloat)size
+{
+    return [UIFont fontWithName:fontName size:size];
+}
+
++ (UIFont *)preferredFontForTextStyle:(NSString *)style
+{
+    if ([style isEqualToString:UIFontTextStyleBody])
+        return [UIFont systemFontOfSize:17];
+    if ([style isEqualToString:UIFontTextStyleHeadline])
+        return [UIFont boldSystemFontOfSize:17];
+    if ([style isEqualToString:UIFontTextStyleSubheadline])
+        return [UIFont systemFontOfSize:15];
+    if ([style isEqualToString:UIFontTextStyleFootnote])
+        return [UIFont systemFontOfSize:13];
+    if ([style isEqualToString:UIFontTextStyleCaption1])
+        return [UIFont systemFontOfSize:12];
+    if ([style isEqualToString:UIFontTextStyleCaption2])
+        return [UIFont systemFontOfSize:11];
+    return [UIFont systemFontOfSize:17];
+}
+
+#pragma clang diagnostic pop
+
+@end
+
+
 @interface RADetailViewController ()
 
 @end
@@ -22,7 +66,7 @@ static const CGFloat interItemMargin = 0;
     
     CGRect bounding = [reference boundingRectWithSize:CGSizeMake(self.view.frame.size.width - 2 * xMargin, 0)
                                               options:NSStringDrawingUsesLineFragmentOrigin
-                                           attributes:@{NSFontAttributeName:[UIFont systemFontOfSize:15]}
+                                           attributes:nil//@{NSFontAttributeName:[UIFont systemFontOfSize:15]}
                                               context:nil];
     
     return bounding.size.height;
