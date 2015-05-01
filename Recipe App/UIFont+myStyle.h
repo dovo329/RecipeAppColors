@@ -8,8 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
-static const NSString *fontName = @"Helvetica";
-static const int globalFontSize = 30;
+static const NSString *fontName = @"Chalkduster";
+static const int globalFontSize = 15;
 
 @interface UIFont (myStyle)
 
